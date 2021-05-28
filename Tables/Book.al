@@ -19,6 +19,13 @@ table 50100 Book
         field(3; PageCount; Integer)
         {
             DataClassification = ToBeClassified;
+            trigger OnValidate()
+            begin
+                if Rec.PageCount < 10 then begin
+                    Error('The page count must be 10 or greater')
+                end;
+
+            end;
 
         }
 
@@ -39,6 +46,33 @@ table 50100 Book
             // select Author.Name from Author where Author.Id = Book.AuthorId
 
             CalcFormula = lookup(Author.Name where(Id = field(AuthorId)));
+            TableRelation = Author;
+            Editable = false;
+        }
+
+        field(7; HardCover; Boolean)
+        {
+            DataClassification = ToBeClassified;
+        }
+
+        field(8; NumOfHardcoverBooks; Integer)
+        {
+            FieldClass = FlowField;
+            // Select Count(*) from books where Books.HardCover = true
+            CalcFormula = Count(Book where(HardCover = const(true)));
+        }
+
+        field(9; NumberOfBooks; Integer)
+        {
+            FieldClass = FlowField;
+            // Select Count(*) from books;
+            CalcFormula = Count(Book);
+        }
+
+        field(10; SumOfHoursToRead; Decimal)
+        {
+            FieldClass = FlowField;
+            CalcFormula = Sum(Book.HoursToRead);
         }
 
     }

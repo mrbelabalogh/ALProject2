@@ -10,13 +10,12 @@ page 50102 AuthorCard
     {
         area(Content)
         {
-            group(General)
+
+            field(Name; Rec.Name)
             {
-                field(Name; Rec.Name)
-                {
-                    ApplicationArea = All;
-                }
+                ApplicationArea = All;
             }
+
         }
     }
 }

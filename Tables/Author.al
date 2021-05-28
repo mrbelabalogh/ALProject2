@@ -26,11 +26,12 @@ table 50101 Author
 
     keys
     {
-        key(PK; Id)
+        key(Key1; Id)
         {
             Clustered = true;
         }
     }
+
 
     fieldgroups
 

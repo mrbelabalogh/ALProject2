@@ -10,7 +10,7 @@ page 50103 AuthorList
     {
         area(Content)
         {
-            repeater(GroupName)
+            repeater(General)
             {
 
                 field(Id; Rec.Id)

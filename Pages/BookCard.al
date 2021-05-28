@@ -1,11 +1,11 @@
-page 50100 BookCard
+page 50110 BookCard
 {
     PageType = Card;
     ApplicationArea = All;
-    UsageCategory = Administration; // For searching the page
+    UsageCategory = Administration;
     SourceTable = Book;
-    DelayedInsert = true;   // Az ablak bezárásakor mentsen
-    AutoSplitKey = true;    // Automatikus ID generálás
+    AutoSplitKey = true;
+    DelayedInsert = true;
 
     layout
     {
@@ -16,23 +16,26 @@ page 50100 BookCard
                 field(Title; Rec.Title)
                 {
                     ApplicationArea = All;
-                    ShowMandatory = true;   // The red * beside the field only visuals
+                    //NotBlank = true;
+                    ShowMandatory = true;
+                }
+
+                field(PageCount; Rec.PageCount)
+                {
+                    ApplicationArea = All;
                 }
 
                 field(Author; Rec.AuthorId)
                 {
                     ApplicationArea = All;
                 }
-            }
 
-            group(Details)
-            {
-                field(PageCount; Rec.PageCount)
+                field(HardCover; Rec.HardCover)
                 {
+                    Caption = 'Hard Cover';
                     ApplicationArea = All;
                 }
             }
         }
     }
-
 }
