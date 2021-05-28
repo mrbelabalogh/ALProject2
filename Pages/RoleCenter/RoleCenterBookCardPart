@@ -1,0 +1,98 @@
+page 50106 BookList
+{
+    PageType = CardPart;
+    ApplicationArea = All;
+    UsageCategory = Administration;
+    SourceTable = Book;
+    CardPageId = BookCard;
+
+    layout
+    {
+        area(Content)
+        {
+            cuegroup(BookStats)
+            {
+                field(NumberOfBooksWritten; Rec.NumberOfBooksWritten)
+                {
+                    caption = "Number of books";
+                    ApplicationArea = All;
+                }
+
+                field(SumOfHoursToRead; Rec.SumOfHoursToRead)
+                {
+                    ApplicationArea = All;
+                }
+
+                field(NumberOfHardcoverBooks; Rec.PageCount)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Page Count';
+                }
+
+                field(HoursToRead; Rec.HoursToRead)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Hours to Read';
+                }
+
+                field(AuthorName; Rec.AuthorName)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Author name';
+                }
+
+                field(AuthorId; Rec.AuthorId)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Author Id';
+                }
+            }
+        }
+
+        area (FactBoxes) {
+
+            systempart(MyLinks; Links) {
+                ApplicationArea = all;
+            }
+
+            systempart(MyNotes; Notes) {
+                ApplicationArea = all;
+            }
+
+
+
+
+
+        }
+    }
+        actions 
+        {
+            area(Navigation)
+            {
+                action(AuthorList) {
+                ApplicationArea = all;
+                
+                
+                }
+
+
+            }
+
+            area(Reporting) {
+                action(CreateReport) {
+                    ApplicationArea = all;
+                    RunObject = Page AuthorList;
+                    Caption = "Create Report";
+
+                }
+            }
+
+
+        }
+
+
+
+
+    }
+
+}
